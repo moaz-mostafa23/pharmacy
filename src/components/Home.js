@@ -1,12 +1,12 @@
-import React from 'react'
-import { NavBar } from './NavBar'
-import { Products } from './Products'
+import React, { useEffect } from 'react'
+import '../css/Home.css'
+import MenuAppBar from './MenuAppBar' // Import the MenuAppBar component
 
-export const Home = () => {
-  return (
-    <div>
-        <NavBar/>
-        <Products/>
-    </div>
-  )
+export const Home = ({ user }) => {
+
+    return (
+        <div className='wrapper'>
+            <MenuAppBar/>
+        </div>
+    )
 }
