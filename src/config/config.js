@@ -1,8 +1,7 @@
-import * as firebase from 'firebase';
-import 'firebase/firestore';
-import 'firebase/auth';
-import 'firebase/storage';
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import { getStorage, ref } from 'firebase/storage';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -12,12 +11,13 @@ const firebaseConfig = {
     storageBucket: "pharmacy-431e8.appspot.com",
     messagingSenderId: "534091650944",
     appId: "1:534091650944:web:33a47bc602d1eb7f7b9365"
-  };
+};
 
-  firebase.initializeApp(firebaseConfig)
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-  const auth = firebase.auth()
-  const db = firebase.firestore()
-  const storage = firebase.storage()
+const storage = getStorage(); 
 
-  export {auth, db, storage}
+export { auth, db, storage, ref };
